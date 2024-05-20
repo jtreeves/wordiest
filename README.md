@@ -1,16 +1,35 @@
-# wordiest
+# Wordiest
 
-A new Flutter project.
+## Run app
 
-## Getting Started
+```bash
+flutter run
+```
 
-This project is a starting point for a Flutter application.
+## Test app
 
-A few resources to get you started if this is your first Flutter project:
+### Unit tests
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter test test/unit_tests
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Widget tests
+
+```bash
+flutter test test/widget_tests
+```
+
+### Integration tests
+
+In one terminal window:
+
+```bash
+chromedriver --port=4444
+```
+
+In another terminal window:
+
+```bash
+flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests/app_test.dart -d web-server --browser-name=chrome --headless
+```
