@@ -10,8 +10,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        - Read all our documentation, especially the [README](https://github.com/jtreeves/read-this-next)
-        - Ensure the feature has not already been [requested](https://github.com/jtreeves/read-this-next/labels/enhancement)
+        - Read all our documentation, especially the [README](https://github.com/jtreeves/wordiest)
+        - Ensure the feature has not already been [requested](https://github.com/jtreeves/wordiest/labels/enhancement)
   - type: textarea
     id: proposal
     attributes:

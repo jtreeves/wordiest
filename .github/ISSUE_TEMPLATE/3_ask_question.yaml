@@ -10,8 +10,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        - Read all our documentation, especially the [README](https://github.com/jtreeves/read-this-next)
-        - Ensure the question has not already been [asked](https://github.com/jtreeves/read-this-next/labels/question)
+        - Read all our documentation, especially the [README](https://github.com/jtreeves/wordiest)
+        - Ensure the question has not already been [asked](https://github.com/jtreeves/wordiest/labels/question)
   - type: textarea
     id: question
     attributes:

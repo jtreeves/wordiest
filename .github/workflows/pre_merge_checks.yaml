@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Run widget tests
-        run: flutter test test/integration_tests
+        run: flutter test test/widget_tests
   web-build:
     timeout-minutes: 10
     runs-on: ubuntu-latest
