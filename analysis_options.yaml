@@ -2,3 +2,7 @@ include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
+    - prefer_single_quotes
+    - require_trailing_commas
+    - eol_at_end_of_file
+    - always_declare_return_types
