@@ -4,16 +4,17 @@
 
 - Peruse the [README](../README.md) at the root of this repo to familiarize yourself with the project, including its purpose and file structure
 - Browse the [Issues](/issues) tab to find open tasks requiring work
-- View the project's [Trello board](https://trello.com/b/orTnMzfO/read-this-next) to find tasks ready to be completed
+- View the project's [Trello board](https://trello.com/b/gTQy2xQK/wordiest) to find tasks ready to be completed
 - By participating in this project, you agree to abide by the terms specified in its [Code of Conduct](CODE_OF_CONDUCT.md)
-- By contributing to this project, you agree that your contributions will be licensed based on terms specified in the [LICENSE](LICENSE.md)
+- By contributing to this project, you agree that your contributions will be licensed based on terms specified in the [LICENSE](../LICENSE)
 
 ## Set Up
 
 ### Prerequisites
 
-- Node (v20+)
-- NPM (v10+)
+- Dart (v3.4+)
+- Flutter (v3.2+)
+- ChromeDriver (v125+)
 
 ### Installation
 
@@ -21,15 +22,7 @@
 2.  Install all dependencies:
 
 ```bash
-npm i
-```
-
-3.  Configure your environment by storing your local variables in an `.env` file at the root of the repo
-
-Example `.env` file:
-
-```
-PLAYWRIGHT_TEST_BASE_URL=http://localhost:3000
+flutter pub get
 ```
 
 ## Issues
@@ -54,6 +47,63 @@ PLAYWRIGHT_TEST_BASE_URL=http://localhost:3000
 - Use the Issues tab to discuss anything else related to the project with the community at large
 - Use the `question` issue tag (any any other relevant existing tags)
 
+## Tests
+
+Automated tests help to improve code quality. New code should add new tests, and all old tests should always pass. Tests are run as part of the CI/CD process to ensure errors do not creep in. Tests fall into three categories of increasing complexity:
+
+### Unit Tests
+
+Tests of the smallest elements are unit tests. All files within the `utilities`, `services`, and `providers` folders should have corresponding test suites in the `test/unit_tests` folder. Any sophisticated classes within the `models` folder should also have unit tests.
+
+To run all unit tests:
+
+```bash
+flutter test test/unit_tests
+```
+
+### Widget Tests
+
+Test of the UI functionality are widget tests. All files within the `components` and `screens` folders should have corresponding test suites in the `test/widget_tests` folder.
+
+To run all widget tests:
+
+```bash
+flutter test test/widget_tests
+```
+
+### Integration Tests
+
+Tests of the entire end-to-end functionality of the app are integration tests. Unlike the previous two types of tests, there is no one-to-one correspondence between files and test suites. Test suites are feature-, not file-, oriented.
+
+In order to run integration tests, you will need ChromeDriver.
+
+Install on a Mac:
+
+```bash
+brew install chromedriver
+```
+
+Instruct the Mac to ignore the unrecognized format:
+
+```bash
+cd /opt/homebrew/bin
+xattr -d com.apple.quarantine chromedriver
+```
+
+To run all integration tests, you will need two active terminal windows.
+
+In one terminal window:
+
+```bash
+chromedriver --port=4444
+```
+
+In another terminal window:
+
+```bash
+flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests/app_test.dart -d web-server --browser-name=chrome --headless
+```
+
 ## Pull Requests
 
 ### Branching
@@ -67,8 +117,8 @@ PLAYWRIGHT_TEST_BASE_URL=http://localhost:3000
 This project uses Husky to enforce code quality during the commit process. It will run the following checks on each commit:
 
 - Message must begin with a capital letter and must not include periods (e.g., `Add search to dashboard`)
-- All TypeScript files will be linted with ESLint and must not contain any errors
-- All files will have formatting applied to them by Prettier
+- All auto-fixable issues in all Dart files will be fixed
+- All Dart files will be formatted with the language's default formatter
 
 ### Opening a Request
 
@@ -84,14 +134,28 @@ This project uses Husky to enforce code quality during the commit process. It wi
 
 Whenever a pull request is opened, the `Pre-Merge Checks` GitHub Action will be fired. It will run the following checks:
 
-- No TypeScript files can contain any warnings (Husky's pre-commit check blocks errors; this check blocks warnings, too)
 - All unit tests must pass
-- The package must be able to be built
+- All widget tests must pass
+- The package must be able to be built as a web app
 
-Best practice is to catch any errors that may be raised by these checks before a PR is opened. The following NPM script will run all necessary checks and catch any potential errors, so it should be executed locally before opening a PR:
+Best practice is to catch any errors that may be raised by these checks before a PR is opened.
+
+To run all unit tests:
 
 ```bash
-npm run check
+flutter test test/unit_tests
+```
+
+To run all widget tests:
+
+```bash
+flutter test test/widget_tests
+```
+
+To build the web app:
+
+```bash
+flutter build web
 ```
 
 ### Code Review
@@ -105,10 +169,7 @@ Be responsive to feedback and make any requested changes promptly.
 
 ### Merging
 
-- Once the pull request has been approved, perform a squash merge to merge it into the `main` branch, thus closing the PR and deleting the branch
-- Merging into `main` will automatically trigger a deployment via Vercel
-- After the code has been deployed, the `Post-Deploy Checks` GitHub Action will be fired to run e2e tests
-- Any failures with the e2e tests will result in a newly created issue, which should be resolved as soon as possible
+Once the pull request has been approved, perform a squash merge to merge it into the `main` branch, thus closing the PR and deleting the branch
 
 ## Resources
 
