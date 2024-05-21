@@ -3,8 +3,7 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  unit-tests:
-    timeout-minutes: 10
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -20,43 +19,21 @@ jobs:
           flutter --version
       - name: Install dependencies
         run: flutter pub get
+  unit-tests:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
       - name: Run unit tests
         run: flutter test test/unit_tests
   widget-tests:
-    timeout-minutes: 10
+    needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        id: flutter-action
-        with:
-          architecture: x64
-      - name: Fix Flutter version
-        run: |
-          git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
-          flutter --version
-      - name: Install dependencies
-        run: flutter pub get
       - name: Run widget tests
         run: flutter test test/widget_tests
   web-build:
-    timeout-minutes: 10
+    needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        id: flutter-action
-        with:
-          architecture: x64
-      - name: Fix Flutter version
-        run: |
-          git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
-          flutter --version
-      - name: Install dependencies
-        run: flutter pub get
       - name: Build app for web
         run: flutter build web
