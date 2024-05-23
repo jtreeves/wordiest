@@ -5,9 +5,10 @@ import 'package:wordiest/main.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
   testWidgets('tap on the floating action button, verify counter',
       (tester) async {
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const App());
 
     expect(find.text('0'), findsOneWidget);
 
