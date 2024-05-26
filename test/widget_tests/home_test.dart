@@ -3,16 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:wordiest/screens/home.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(const Home(title: ''));
+  testWidgets('Home app displays title', (WidgetTester tester) async {
+    const mockTitle = 'Mock Title';
 
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(const MaterialApp(home: Home(title: mockTitle)));
 
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text(mockTitle), findsOneWidget);
   });
 }

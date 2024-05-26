@@ -101,7 +101,7 @@ chromedriver --port=4444
 In another terminal window:
 
 ```bash
-flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests/app_test.dart -d web-server --browser-name=chrome --headless
+flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests -d web-server --browser-name=chrome --headless
 ```
 
 ## Pull Requests
