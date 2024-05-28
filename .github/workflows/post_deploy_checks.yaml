@@ -1,0 +1,45 @@
+name: Post-Deploy Checks
+on:
+  workflow_run:
+    workflows: ['Deploy on Merge']
+    types:
+      - completed
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        id: flutter-action
+        with:
+          architecture: x64
+      - name: Fix Flutter version
+        run: |
+          git config --global --add safe.directory /opt/hostedtoolcache/flutter/${{ steps.flutter-action.outputs.CHANNEL }}-${{ steps.flutter-action.outputs.VERSION }}-${{ steps.flutter-action.outputs.ARCHITECTURE }}
+          flutter --version
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+      - name: Install ChromeDriver
+        run: |
+          CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
+          sudo apt-get install -y unzip
+          wget -N https://chromedriver.storage.googleapis.com/${CHROME_VERSION}/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv -f chromedriver /usr/local/bin/chromedriver
+          sudo chmod +x /usr/local/bin/chromedriver
+          rm chromedriver_linux64.zip
+      - name: Run integration tests
+        env:
+          DEPLOYED_SITE_URL: https://wordiest-games.web.app
+        run: flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests -d web-server --browser-name=chrome --headless --url=${{ env.DEPLOYED_SITE_URL }}
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: integration-test-results
+          path: build/reports/
