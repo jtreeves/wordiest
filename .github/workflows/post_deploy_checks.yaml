@@ -32,10 +32,11 @@ jobs:
       - name: Install ChromeDriver
         run: |
           sudo apt-get install -y chromium-chromedriver
+      - name: Start ChromeDriver
+        run: |
+          chromedriver --port=4444
       - name: Run integration tests
-        env:
-          DEPLOYED_SITE_URL: https://wordiest-games.web.app
-        run: flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests -d web-server --browser-name=chrome --headless --url=${{ env.DEPLOYED_SITE_URL }}
+        run: flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests -d web-server --browser-name=chrome --headless
       - name: Upload test results
         uses: actions/upload-artifact@v2
         with:
