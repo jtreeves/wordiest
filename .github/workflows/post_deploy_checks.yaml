@@ -21,22 +21,8 @@ jobs:
           flutter --version
       - name: Install dependencies
         run: flutter pub get
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gnupg
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-      - name: Install ChromeDriver
-        run: |
-          sudo apt-get install -y chromium-chromedriver
-      - name: Start ChromeDriver
-        run: |
-          chromedriver --port=4444
       - name: Run integration tests
-        run: flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests -d web-server --browser-name=chrome --headless
+        run: flutter test test/integration_tests
       - name: Upload test results
         uses: actions/upload-artifact@v2
         with:
