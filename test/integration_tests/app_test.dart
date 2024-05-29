@@ -8,6 +8,6 @@ void main() {
   testWidgets('App displays title of site', (tester) async {
     await tester.pumpWidget(const App());
 
-    expect(find.text('Wordiest'), findsOneWidget);
+    expect(find.text('Word666iest'), findsOneWidget);
   });
 }
