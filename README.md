@@ -1,5 +1,39 @@
 # Wordiest
 
+## Games
+
+### Word Whittle
+
+#### UI
+
+#### Rules
+
+#### Implementation
+
+### Word Core
+
+#### UI
+
+#### Rules
+
+#### Implementation
+
+### Word Web
+
+#### UI
+
+#### Rules
+
+#### Implementation
+
+### Word Buckets
+
+#### UI
+
+#### Rules
+
+#### Implementation
+
 ## Run app
 
 ```bash
@@ -32,4 +66,10 @@ In another terminal window:
 
 ```bash
 flutter drive --driver=test/test_driver/integration_test.dart --target=test/integration_tests -d web-server --browser-name=chrome --headless
+```
+
+Alternatively, you can run those tests without a driver by using:
+
+```bash
+flutter test test/integration_tests
 ```
