@@ -4,6 +4,9 @@ on:
     workflows: ['Deploy on Merge']
     types:
       - completed
+permissions:
+  issues: write
+  contents: read
 jobs:
   integration-tests:
     runs-on: ubuntu-latest
