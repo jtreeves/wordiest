@@ -2,7 +2,7 @@
 
 ## Games
 
-### Word Whittle
+### Word Reduction
 
 #### UI
 
@@ -10,7 +10,7 @@
 
 #### Implementation
 
-### Word Core
+### Word Bowl
 
 #### UI
 
@@ -26,7 +26,15 @@
 
 #### Implementation
 
-### Word Buckets
+### Word Clues
+
+#### UI
+
+#### Rules
+
+#### Implementation
+
+### Word Sprawl
 
 #### UI
 
