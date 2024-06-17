@@ -1,0 +1,198 @@
+{
+  "info": {
+    "name": "Datamuse API Collection",
+    "description": "A collection of requests for getting key word features from the third-party Datamuse API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Words by Letter Count",
+      "description": "Queries return 100 words by default; adjust the number of question marks to change the length of the word",
+      "item": [
+        {
+          "name": "Get 3-Letter Words",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?sp=???",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "sp",
+                  "value": "???"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get 6-Letter Words",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?sp=??????",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "sp",
+                  "value": "??????"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get 9-Letter Words",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?sp=?????????",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "sp",
+                  "value": "?????????"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Synonyms",
+      "description": "Obtain similar words to the searched word",
+      "item": [
+        {
+          "name": "Get Synonyms for Happy",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?rel_syn=happy",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "rel_syn",
+                  "value": "happy"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Synonyms for Sad",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?rel_syn=sad",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "rel_syn",
+                  "value": "sad"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Synonyms for Angry",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?rel_syn=angry",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "rel_syn",
+                  "value": "angry"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Homophones",
+      "description": "Obtain words that sounds similar to a given word",
+      "item": [
+        {
+          "name": "Get Homophones for Course",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?rel_hom=course",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "rel_hom",
+                  "value": "course"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Homophones for Write",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?rel_hom=write",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "rel_hom",
+                  "value": "write"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Homophones for Peak",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://api.datamuse.com/words?rel_hom=peak",
+              "protocol": "https",
+              "host": ["api", "datamuse", "com"],
+              "path": ["words"],
+              "query": [
+                {
+                  "key": "rel_hom",
+                  "value": "peak"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
