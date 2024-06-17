@@ -1,187 +1,319 @@
 {
   "info": {
-    "name": "Datamuse API Collection",
-    "description": "A collection of requests for getting key word features from the third-party Datamuse API",
+    "name": "Wordiest APIs Collection",
+    "description": "A collection of requests for getting key word features from various third-party APIs",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "Get Words by Letter Count",
-      "description": "Queries return 100 words by default; adjust the number of question marks to change the length of the word",
+      "name": "Datamuse API Collection",
+      "description": "A collection of requests for getting key word features from the Datamuse API",
       "item": [
         {
-          "name": "Get 3-Letter Words",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "sp",
-                  "value": "???"
+          "name": "Get Words by Letter Count",
+          "description": "Queries return 100 words by default; adjust the number of question marks to change the length of the word",
+          "item": [
+            {
+              "name": "Get 3-Letter Words",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "sp",
+                      "value": "???"
+                    }
+                  ]
                 }
-              ]
+              }
+            },
+            {
+              "name": "Get 6-Letter Words",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "sp",
+                      "value": "??????"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get 9-Letter Words",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "sp",
+                      "value": "?????????"
+                    }
+                  ]
+                }
+              }
             }
-          }
+          ]
         },
         {
-          "name": "Get 6-Letter Words",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "sp",
-                  "value": "??????"
+          "name": "Get Synonyms",
+          "description": "Obtain similar words to the searched word",
+          "item": [
+            {
+              "name": "Get Synonyms for Happy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "rel_syn",
+                      "value": "happy"
+                    }
+                  ]
                 }
-              ]
+              }
+            },
+            {
+              "name": "Get Synonyms for Sad",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "rel_syn",
+                      "value": "sad"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Synonyms for Angry",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "rel_syn",
+                      "value": "angry"
+                    }
+                  ]
+                }
+              }
             }
-          }
+          ]
         },
         {
-          "name": "Get 9-Letter Words",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "sp",
-                  "value": "?????????"
+          "name": "Get Homophones",
+          "description": "Obtain words that sounds similar to a given word",
+          "item": [
+            {
+              "name": "Get Homophones for Course",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "rel_hom",
+                      "value": "course"
+                    }
+                  ]
                 }
-              ]
+              }
+            },
+            {
+              "name": "Get Homophones for Write",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "rel_hom",
+                      "value": "write"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Homophones for Peak",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "datamuse", "com"],
+                  "path": ["words"],
+                  "query": [
+                    {
+                      "key": "rel_hom",
+                      "value": "peak"
+                    }
+                  ]
+                }
+              }
             }
-          }
+          ]
         }
       ]
     },
     {
-      "name": "Get Synonyms",
-      "description": "Obtain similar words to the searched word",
+      "name": "Dictionary API Collection",
+      "description": "A collection of requests for getting key word features from the Dictionary API",
       "item": [
         {
-          "name": "Get Synonyms for Happy",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "rel_syn",
-                  "value": "happy"
+          "name": "Get Common Words",
+          "description": "Find definitions of valid words",
+          "item": [
+            {
+              "name": "Get Happy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "dictionaryapi", "dev"],
+                  "path": ["api", "v2", "entries", "en", ":word"],
+                  "variable": [
+                    {
+                      "key": "word",
+                      "value": "happy"
+                    }
+                  ]
                 }
-              ]
+              }
+            },
+            {
+              "name": "Get Sad",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "dictionaryapi", "dev"],
+                  "path": ["api", "v2", "entries", "en", ":word"],
+                  "variable": [
+                    {
+                      "key": "word",
+                      "value": "sad"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Angry",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "dictionaryapi", "dev"],
+                  "path": ["api", "v2", "entries", "en", ":word"],
+                  "variable": [
+                    {
+                      "key": "word",
+                      "value": "angry"
+                    }
+                  ]
+                }
+              }
             }
-          }
+          ]
         },
         {
-          "name": "Get Synonyms for Sad",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "rel_syn",
-                  "value": "sad"
+          "name": "Get False Words",
+          "description": "An error is returned if a word does not appear in the dictionary, like if it is a proper noun or contains a space",
+          "item": [
+            {
+              "name": "Get Israel",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "dictionaryapi", "dev"],
+                  "path": ["api", "v2", "entries", "en", ":word"],
+                  "variable": [
+                    {
+                      "key": "word",
+                      "value": "israel"
+                    }
+                  ]
                 }
-              ]
-            }
-          }
-        },
-        {
-          "name": "Get Synonyms for Angry",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "rel_syn",
-                  "value": "angry"
+              }
+            },
+            {
+              "name": "Get In A",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "dictionaryapi", "dev"],
+                  "path": ["api", "v2", "entries", "en", ":word"],
+                  "variable": [
+                    {
+                      "key": "word",
+                      "value": "in a"
+                    }
+                  ]
                 }
-              ]
-            }
-          }
-        }
-      ]
-    },
-    {
-      "name": "Get Homophones",
-      "description": "Obtain words that sounds similar to a given word",
-      "item": [
-        {
-          "name": "Get Homophones for Course",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "rel_hom",
-                  "value": "course"
+              }
+            },
+            {
+              "name": "Get NASA",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "protocol": "https",
+                  "host": ["api", "dictionaryapi", "dev"],
+                  "path": ["api", "v2", "entries", "en", ":word"],
+                  "variable": [
+                    {
+                      "key": "word",
+                      "value": "nasa"
+                    }
+                  ]
                 }
-              ]
+              }
             }
-          }
-        },
-        {
-          "name": "Get Homophones for Write",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "rel_hom",
-                  "value": "write"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "name": "Get Homophones for Peak",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "protocol": "https",
-              "host": ["api", "datamuse", "com"],
-              "path": ["words"],
-              "query": [
-                {
-                  "key": "rel_hom",
-                  "value": "peak"
-                }
-              ]
-            }
-          }
+          ]
         }
       ]
     }
