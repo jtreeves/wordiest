@@ -15,7 +15,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?sp=???",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -34,7 +33,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?sp=??????",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -53,7 +51,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?sp=?????????",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -78,7 +75,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?rel_syn=happy",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -97,7 +93,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?rel_syn=sad",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -116,7 +111,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?rel_syn=angry",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -141,7 +135,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?rel_hom=course",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -160,7 +153,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?rel_hom=write",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
@@ -179,7 +171,6 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://api.datamuse.com/words?rel_hom=peak",
               "protocol": "https",
               "host": ["api", "datamuse", "com"],
               "path": ["words"],
